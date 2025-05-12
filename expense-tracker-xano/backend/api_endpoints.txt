@@ -1,0 +1,7 @@
+GET /auth/me
+POST /auth/login
+POST /auth/signup
+POST /expenses
+GET /expenses
+PUT /expenses/:id
+DELETE /expenses/:id

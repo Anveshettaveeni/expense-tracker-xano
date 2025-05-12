@@ -1,0 +1,40 @@
+{
+  "tables": [
+    {
+      "name": "users",
+      "columns": [
+        {"name": "id", "type": "autoincrement", "primary": true},
+        {"name": "email", "type": "string", "unique": true},
+        {"name": "password_hash", "type": "string"},
+        {"name": "name", "type": "string"},
+        {"name": "created_at", "type": "datetime"}
+      ]
+    },
+    {
+      "name": "expenses",
+      "columns": [
+        {"name": "id", "type": "autoincrement", "primary": true},
+        {"name": "user_id", "type": "foreign", "references": "users.id"},
+        {"name": "amount", "type": "float"},
+        {"name": "category", "type": "string"},
+        {"name": "description", "type": "string"},
+        {"name": "date", "type": "datetime"},
+        {"name": "receipt_image_url", "type": "string"},
+        {"name": "merchant", "type": "string"},
+        {"name": "processed_at", "type": "datetime"}
+      ]
+    },
+    {
+      "name": "budgets",
+      "columns": [
+        {"name": "id", "type": "autoincrement", "primary": true},
+        {"name": "user_id", "type": "foreign", "references": "users.id"},
+        {"name": "category", "type": "string"},
+        {"name": "monthly_limit", "type": "float"},
+        {"name": "current_spend", "type": "float"},
+        {"name": "created_at", "type": "datetime"},
+        {"name": "updated_at", "type": "datetime"}
+      ]
+    }
+  ]
+}
